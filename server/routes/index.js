@@ -1,1 +1,4 @@
-module.exports.Users = require("./users");
+module.exports = {
+  users: require("./users"),
+  auth: require("./auth")
+};

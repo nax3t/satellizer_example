@@ -2,19 +2,24 @@
   "name": "satellizer_app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "body-parser": "^1.14.2",
+    "dotenv": "^1.2.0",
     "express": "^4.13.3",
+    "jwt-simple": "^0.4.0",
     "locus": "^1.2.0",
+    "moment": "^2.11.0",
     "mongoose": "^4.3.4",
     "morgan": "^1.6.1",
     "passport": "^0.3.2",
-    "passport-facebook": "^2.0.0"
+    "passport-facebook": "^2.0.0",
+    "request": "^2.67.0"
   }
 }
