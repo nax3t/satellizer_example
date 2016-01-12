@@ -2,11 +2,13 @@ app.controller("MainController", function(){
 
 });
 
-app.controller("LoginController", function($scope, $auth, $location){
+app.controller("LoginController", function($scope, $auth, $location, $localstorage){
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
-      .then(function() {
+      .then(function(res) {
         console.log('You have successfully signed in with ' + provider + '!');
+        // STILL WORKING ON THIS
+        $localstorage.set('key_here', res.data)
         $location.path('/home');
       })
       .catch(function(error) {
