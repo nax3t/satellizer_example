@@ -1,10 +1,10 @@
-require("dotenv").load();
+// require("dotenv").load();
 
 var express = require("express");
 var router = express.Router();
 var request = require("request");
 var db = require('../models/');
-var jwt = require('jwt-simple');
+var jwt = require('jsonwebtoken');
 var moment = require('moment');
 require("locus");
 
@@ -20,7 +20,7 @@ function createJWT(user) {
     exp: moment().add(14, 'days').unix()
   };
 
-  return jwt.encode(payload, process.env.JWT_SECRET);
+  return jwt.sign(payload, process.env.JWT_SECRET);
 }
 
 router.post('/facebook', function(req, res) {
@@ -51,7 +51,7 @@ router.post('/facebook', function(req, res) {
               return res.status(409).send({ message: 'There is already a Facebook account that belongs to you' });
             }
             var token = req.headers.authorization.split(' ')[1];
-            var payload = jwt.decode(token, process.env.JWT_SECRET);
+            var payload = jwt.verify(token, process.env.JWT_SECRET);
             db.User.findById(payload.sub, function(err, user) {
               if (!user) {
                 return res.status(400).send({ message: 'User not found' });
