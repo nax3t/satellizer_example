@@ -15,7 +15,12 @@ app_name
 ----index.html
 --server
 ----models
+------user.js
+------index.js
 ----routes
+------index.js
+------auth.js
+------users.js
 ----app.js
 --.gitignore
 --.env
