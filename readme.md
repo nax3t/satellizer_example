@@ -83,7 +83,6 @@ var request = require("request");
 var db = require('../models/');
 var jwt = require('jsonwebtoken');
 var moment = require('moment');
-require("locus");
 
 /*
  |--------------------------------------------------------------------------
