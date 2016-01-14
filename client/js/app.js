@@ -32,7 +32,7 @@ app.config(function($routeProvider, $locationProvider, $authProvider){
   $locationProvider.html5Mode(true);
 
   $authProvider.facebook({
-    clientId: '936601283093917',
+    clientId: 'your_client_id_goes_here',
     url: '/api/auth/facebook'
   });
 
