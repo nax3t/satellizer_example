@@ -1,5 +1,5 @@
-app.controller("MainController", function(){
-
+app.controller("MainController", function($scope, $auth){
+  $scope.user = $auth.getPayload().user;
 });
 
 app.controller("LoginController", function($scope, $auth, $location, $localstorage){
