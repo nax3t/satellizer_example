@@ -2,13 +2,11 @@ app.controller("MainController", function($scope, $auth){
   $scope.user = $auth.getPayload().user;
 });
 
-app.controller("LoginController", function($scope, $auth, $location, $localstorage){
+app.controller("LoginController", function($scope, $auth, $location){
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
       .then(function(res) {
         console.log('You have successfully signed in with ' + provider + '!');
-        // STILL WORKING ON THIS
-        $localstorage.set('key_here', res.data)
         $location.path('/home');
       })
       .catch(function(error) {
@@ -45,6 +43,7 @@ app.controller('SignupController', function($scope, $location, $auth) {
           console.log('You have successfully created a new account and have been signed-in');
         })
         .catch(function(response) {
+          debugger
           console.log(response.data.message);
         });
     };

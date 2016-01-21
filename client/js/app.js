@@ -18,7 +18,7 @@ app.config(function($routeProvider, $locationProvider, $authProvider){
   })
   .when('/signup', {
     controller: "SignupController",
-    templateUrl: "templates/login.html",
+    templateUrl: "templates/signup.html",
     resolve: {
       skipIfLoggedIn: skipIfLoggedIn
     }
@@ -32,8 +32,7 @@ app.config(function($routeProvider, $locationProvider, $authProvider){
   $locationProvider.html5Mode(true);
 
   $authProvider.facebook({
-    clientId: 'your_client_id_here',
-    url: '/api/auth/facebook'
+    clientId: '1551093398543330'
   });
 
   function skipIfLoggedIn($q, $auth, $location) {
