@@ -3,6 +3,15 @@ app.controller("MainController", function($scope, $auth){
 });
 
 app.controller("LoginController", function($scope, $auth, $location){
+  $scope.login = function() {
+    $auth.login($scope.user)
+      .then(function() {
+        $location.path('/home');
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
       .then(function(res) {
